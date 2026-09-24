@@ -1,0 +1,35 @@
+# Пресет бренда Универус — бренд по умолчанию для этого плагина.
+# Все примеры в examples/ собраны с ним.
+#
+# Если у вас свой бренд: скопируйте brand.example.yaml (не этот файл)
+# под именем brand.yaml в корень рабочей папки и поправьте.
+# Логотип и название «Универус» — товарный знак, под лицензию MIT не подпадают.
+
+name: "Универус"
+wordmark: "универус"
+site: "univerus.ai"
+cta: "univerus.ai"
+eyebrow: "Презентация · Универус"
+
+logo:
+  mark: "logo-mark.svg"
+
+motif: true
+
+palette:
+  primary: "#3785e2"
+  sky: "#4ba7f9"
+  deep: "#2a6fc4"
+  accent: "#d0ea50"
+  ink: "#080d18"
+  ink_2: "#131b2e"
+  ink_3: "#1c273f"
+  paper: "#f5f2eb"
+  bone: "#faf8f3"
+  danger: "#e0444a"
+
+fonts:
+  dir: "assets/fonts"
+  display: "Unbounded"
+  sans: "Onest"
+  mono: "JetBrains Mono"

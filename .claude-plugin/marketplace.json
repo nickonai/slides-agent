@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "slides-agent",
+  "description": "Презентатор Универус — презентации в фирменном стиле для Claude Code",
+  "owner": {
+    "name": "Nikolai Volosiankov"
+  },
+  "plugins": [
+    {
+      "name": "slides-agent",
+      "source": "./",
+      "description": "Презентатор: любой контент — в презентацию в фирменном стиле. HTML-дек, PPTX с заметками, PDF и версия для телефона"
+    }
+  ]
+}

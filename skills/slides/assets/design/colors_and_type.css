@@ -1,0 +1,308 @@
+/* ============================================================
+   УНИВЕРУС · Design System — Colors & Type Foundations
+   "Editorial Neural" — warm paper · blue-black ink · brand blue · electric citron
+   Cyrillic-first. WCAG AA target.
+   ------------------------------------------------------------
+   Fonts (Google Fonts, full Cyrillic):
+     Display  → Unbounded      (rounded-geometric, signature)
+     Sans/UI  → Onest          (Cyrillic-native grotesque)
+     Mono     → JetBrains Mono (labels, data, AI/system voice)
+   In HTML, add before this file:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300..900&family=Onest:wght@300..800&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300..900&family=Onest:wght@300..800&family=JetBrains+Mono:wght@400..700&display=swap');
+
+:root {
+  /* ---------- BRAND BLUE (fixed ramp; blue-600 is the interactive tone — see --brand) ---------- */
+  --blue-50:  #eaf4fe;
+  --blue-100: #d2e8fd;
+  --blue-200: #a9d3fb;
+  --blue-300: #7cbcfa;
+  --blue-400: #4ba7f9;   /* Sky — lighter brand accent: gradients, on-dark highlights */
+  --blue-500: #3785e2;   /* PRIMARY brand blue (Deep Blue) */
+  --blue-600: #2a6fc4;   /* hover / active (deeper) */
+  --blue-700: #2259a0;   /* pressed */
+  --blue-800: #1b477e;
+  --blue-900: #15375f;
+  --brand-grad: radial-gradient(120% 140% at 18% 110%, #4ba6f8 0%, #3784e1 93%); /* @kind color */
+
+  /* brand role aliases — interactive roles sit one step deeper than blue-500
+     so white text passes WCAG AA (blue-500 + white = 3.74:1, blue-600 = 5.04:1) */
+  --brand:       #2a6fc4;  /* = blue-600 — buttons, links, interactive brand */
+  --brand-hover: #2259a0;  /* = blue-700 */
+  --brand-press: #1b477e;  /* = blue-800 */
+  --brand-sky:   #4ba7f9;  /* = blue-400, lighter accent (graphics, on-dark) */
+
+  /* ---------- INK (blue-black) — premium dark surfaces & strong text ---------- */
+  --ink-900: #080d18;   /* deepest marketing dark */
+  --ink-800: #0d1322;
+  --ink-700: #131b2e;
+  --ink-600: #1c273f;
+  --ink-500: #283651;
+  --ink-400: #3a4a68;
+
+  /* ---------- WARM PAPER NEUTRALS — the editorial light family ---------- */
+  --paper:    #f5f2eb;   /* warm canvas (marketing) */
+  --bone:     #faf8f3;   /* lighter warm canvas */
+  --sand-100: #efe9dd;
+  --sand-200: #e4ddcd;   /* hairlines / borders on paper */
+  --sand-300: #d2c9b4;
+
+  /* product-UI cool-neutral ramp (cleaner, denser surfaces) */
+  --n-0:   #ffffff;
+  --n-25:  #fbfbfa;
+  --n-50:  #f5f6f7;
+  --n-100: #eceef1;
+  --n-150: #e1e4e9;   /* default UI border */
+  --n-200: #cfd4dc;
+  --n-300: #b0b7c2;
+  --n-400: #8a93a1;
+  --n-500: #69727f;
+  --n-600: #4d5562;
+  --n-700: #363d49;
+  --n-800: #20262f;
+  --n-900: #121620;
+
+  /* ---------- CITRON — electric AI / neural signal accent ---------- */
+  --citron-100: #f3fbd2;
+  --citron-200: #e9f7a8;
+  --citron-300: #ddf279;
+  --citron-400: #d0ea50;   /* primary acid */
+  --citron-500: #b9d531;
+  --citron-600: #93ab1f;
+  --citron-700: #6e8016;
+  /* citron carried by surface: pure #d0ea50 lives on ink (14.4:1) or as a fill
+     under ink text — NEVER as a line/text on light (1.35:1 on white) */
+  --citron-on-light: var(--citron-600);
+  --citron-on-dark:  var(--citron-400);
+
+  /* ---------- EXPRESSIVE / DATA-VIZ PALETTE (marketing, charts, illustration) ---------- */
+  --viz-blue:   #4ba7f9;
+  --viz-citron: #cfe94c;
+  --viz-coral:  #ff7a59;
+  --viz-violet: #7b6cf6;
+  --viz-teal:   #25c2ac;
+  --viz-amber:  #ffb020;
+  --viz-pink:   #f96cae;
+
+  /* ---------- SEMANTIC ----------
+     -fg tones are for TEXT on the tint bgs (AA at small sizes);
+     base tones are for icons, borders, large graphics */
+  --success:    #14a06b;
+  --success-fg: #0d7a50;
+  --success-bg: #e4f5ec;
+  --warning:    #d9851a;
+  --warning-fg: #8f5808;
+  --warning-bg: #fbf0db;
+  --danger:     #e0444a;
+  --danger-fg:  #c02b34;
+  --danger-bg:  #fbe9ea;
+  --info:       var(--blue-600);
+  --info-bg:    var(--blue-50);
+
+  /* ============================================================
+     SEMANTIC TOKENS — LIGHT (default). Marketing = warm paper.
+     ============================================================ */
+  --bg-canvas:     var(--paper);     /* page background (marketing/editorial) */
+  --bg-app:        var(--n-50);       /* page background (product UI, cooler) */
+  --bg-surface:    #ffffff;           /* cards, panels */
+  --bg-surface-2:  var(--bone);       /* nested / subtle surface */
+  --bg-sunken:     var(--sand-100);   /* wells, track backgrounds */
+  --bg-inverse:    var(--ink-900);    /* dark sections within light pages */
+
+  --fg-1: #0e1422;   /* primary text (near-ink) */
+  --fg-2: #434b5a;   /* secondary text */
+  --fg-3: #6c7484;   /* muted / captions */
+  --fg-4: #9aa1ad;   /* faint / placeholder */
+  --fg-on-blue:   #ffffff;
+  --fg-on-citron: var(--ink-900);
+  --fg-on-ink:    #eef2f8;
+
+  --border:        var(--n-150);      /* default border (product) */
+  --border-strong: var(--n-200);
+  --border-paper:  var(--sand-200);   /* border on warm surfaces */
+  --ring:          color-mix(in srgb, var(--blue-400) 55%, transparent);
+
+  --link:       var(--blue-600);
+  --link-hover: var(--blue-700);
+
+  /* ---------- RADII (generous, friendly — echoes the rounded mark) ---------- */
+  --r-xs:   6px;
+  --r-sm:   10px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-xl:   28px;
+  --r-2xl:  40px;
+  --r-pill: 999px;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+  --sp-5: 20px;  --sp-6: 24px;  --sp-8: 32px;  --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px; --sp-32: 128px;
+
+  /* ---------- ELEVATION — soft, layered, faintly blue-tinted ---------- */
+  --shadow-xs: 0 1px 2px rgba(13,19,34,.06);
+  --shadow-sm: 0 1px 2px rgba(13,19,34,.05), 0 2px 6px rgba(13,19,34,.06);
+  --shadow-md: 0 2px 4px rgba(13,19,34,.05), 0 8px 20px rgba(13,19,34,.08);
+  --shadow-lg: 0 4px 8px rgba(13,19,34,.06), 0 18px 40px rgba(13,19,34,.12);
+  --shadow-xl: 0 8px 16px rgba(13,19,34,.08), 0 36px 70px rgba(13,19,34,.16);
+  --shadow-lift: 0 24px 48px -16px rgba(31,80,140,.28);     /* marketing card "float" */
+  --glow-blue:   0 0 0 1px rgba(75,167,249,.35), 0 8px 32px rgba(75,167,249,.30);
+  --glow-citron: 0 0 0 1px rgba(208,234,80,.45), 0 8px 30px rgba(185,213,49,.35);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:    cubic-bezier(.2,.8,.2,1);     /* @kind other */ /* default UI easing */
+  --ease-inout:  cubic-bezier(.65,0,.35,1);    /* @kind other */
+  --ease-spring: cubic-bezier(.34,1.56,.64,1); /* @kind other */ /* playful overshoot (use sparingly) */
+  --dur-1: 120ms;   /* @kind other */ /* taps, hovers */
+  --dur-2: 200ms;   /* @kind other */ /* most transitions */
+  --dur-3: 320ms;   /* @kind other */ /* panels, reveals */
+  --dur-4: 520ms;   /* @kind other */ /* hero / large motion */
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-display: 'Unbounded', 'Onest', system-ui, sans-serif;
+  --font-sans:    'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* fluid display sizes (marketing) — clamp(min, vw, max) */
+  --fs-display-1: clamp(3.2rem, 7vw, 6.5rem); /* @kind font */ /* hero */
+  --fs-display-2: clamp(2.6rem, 5vw, 4.5rem); /* @kind font */
+  --fs-h1: clamp(2.1rem, 3.4vw, 3.25rem);     /* @kind font */
+  --fs-h2: clamp(1.65rem, 2.4vw, 2.35rem);    /* @kind font */
+  --fs-h3: clamp(1.3rem, 1.7vw, 1.6rem);      /* @kind font */
+  --fs-h4: 1.2rem;
+  --fs-lead: 1.2rem;
+  --fs-body: 1rem;        /* 16px */
+  --fs-sm: 0.875rem;      /* 14px */
+  --fs-xs: 0.75rem;       /* 12px */
+  --fs-eyebrow: 0.78rem;
+}
+
+/* ============================================================
+   SEMANTIC TOKENS — DARK
+   Apply with <html data-theme="dark"> or .theme-dark on a container.
+   ============================================================ */
+[data-theme="dark"], .theme-dark {
+  --bg-canvas:    var(--ink-900);
+  --bg-app:       var(--ink-900);
+  --bg-surface:   var(--ink-800);
+  --bg-surface-2: var(--ink-700);
+  --bg-sunken:    #060a12;
+  --bg-inverse:   var(--bone);
+
+  --fg-1: #f1f4fa;
+  --fg-2: #b3bcce;
+  --fg-3: #828da3;
+  --fg-4: #5c6680;
+
+  --border:        rgba(255,255,255,.10);
+  --border-strong: rgba(255,255,255,.18);
+  --border-paper:  rgba(255,255,255,.10);
+
+  --link:       var(--blue-300);
+  --link-hover: var(--blue-200);
+
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.4);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.45);
+  --shadow-md: 0 2px 6px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.55);
+  --shadow-lg: 0 6px 14px rgba(0,0,0,.5), 0 24px 60px rgba(0,0,0,.6);
+  --shadow-xl: 0 10px 24px rgba(0,0,0,.55), 0 44px 90px rgba(0,0,0,.7);
+}
+
+/* ============================================================
+   ELEMENT-LEVEL TYPE SYSTEM (opt-in via .univ-type wrapper,
+   or copy these rules into your base styles)
+   ============================================================ */
+.univ-type {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  font-feature-settings: "ss01", "cv01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.display-1, .display-2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+.display-1 { font-size: var(--fs-display-1); }
+.display-2 { font-size: var(--fs-display-2); }
+
+.univ-type h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+.univ-type h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h2);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+.univ-type h3, .h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+.univ-type h4, .h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  color: var(--fg-1);
+}
+.lead {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.univ-type p, .body { font-size: var(--fs-body); line-height: 1.62; color: var(--fg-2); text-wrap: pretty; }
+.small { font-size: var(--fs-sm); line-height: 1.5; color: var(--fg-3); }
+.caption { font-size: var(--fs-xs); line-height: 1.45; color: var(--fg-3); }
+
+/* Eyebrow / label — mono, uppercase, tracked. A signature micro-element. */
+.eyebrow, .label-mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-700);
+}
+.kbd, code, .code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xs);
+  padding: 0.1em 0.4em;
+}
+
+a.univ-link, .univ-type a { color: var(--link); text-decoration: none; }
+.univ-type a:hover { color: var(--link-hover); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Citron text-highlight (marketing emphasis on ink/dark) */
+.mark-citron { color: var(--ink-900); background: linear-gradient(180deg, transparent 58%, var(--citron-400) 58%); padding: 0 .08em; }
+.text-gradient-blue { background: var(--brand-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }

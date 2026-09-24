@@ -1,0 +1,46 @@
+/* Универус · Pitch-deck slide primitives. Pairs with colors_and_type.css.
+   Design size 1280×720. */
+.slide {
+  width: 1280px; height: 720px; position: relative; overflow: hidden;
+  font-family: var(--font-sans); color: var(--fg-1); background: var(--paper);
+  box-sizing: border-box;
+  /* pin light-theme semantics: slides choose their own theme per-slide and must
+     not flip when a host sets data-theme="dark" on the document */
+  --fg-1: #0e1422; --fg-2: #434b5a; --fg-3: #6c7484; --fg-4: #9aa1ad;
+  --bg-surface: #ffffff; --bg-sunken: #efe9dd;
+  --border: #e1e4e9; --border-strong: #cfd4dc; --border-paper: #e4ddcd;
+  --shadow-sm: 0 1px 2px rgba(13,19,34,.05), 0 2px 6px rgba(13,19,34,.06);
+  --shadow-md: 0 2px 4px rgba(13,19,34,.05), 0 8px 20px rgba(13,19,34,.08);
+  --shadow-xl: 0 8px 16px rgba(13,19,34,.08), 0 36px 70px rgba(13,19,34,.16);
+}
+.slide * { box-sizing: border-box; }
+.slide.ink { background: var(--ink-900); color: #eef2f8; }
+.slide.blue { background: radial-gradient(130% 150% at 85% -20%, #4ba6f8 0%, #3080dd 55%, #2a6fc4 100%); color: #fff; }
+.slide-pad { position: absolute; inset: 0; padding: 76px 88px; display: flex; flex-direction: column; }
+
+/* foot */
+.slide-foot { position: absolute; left: 88px; right: 88px; bottom: 40px; display: flex; align-items: center; justify-content: space-between; }
+.slide-foot .brand { display: flex; align-items: center; gap: 9px; font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: -.02em; }
+.slide-foot .pg { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-4); }
+.slide.ink .slide-foot .pg { color: #6f7b93; }
+
+.s-eyebrow { font-family: var(--font-mono); font-weight: 500; font-size: 15px; letter-spacing: .16em; text-transform: uppercase; color: var(--blue-500); }
+.slide.ink .s-eyebrow { color: var(--citron-400); }
+.s-display { font-family: var(--font-display); font-weight: 700; letter-spacing: -.03em; line-height: .98; color: var(--fg-1); }
+.slide.ink .s-display { color: #fff; }
+.s-h2 { font-family: var(--font-display); font-weight: 600; letter-spacing: -.02em; line-height: 1.05; }
+.s-lead { font-size: 22px; line-height: 1.5; color: var(--fg-2); }
+.slide.ink .s-lead { color: #aeb8cc; }
+
+.citron-u { position: relative; white-space: nowrap; }
+.citron-u svg { position: absolute; left: .02em; right: .02em; bottom: -.14em; width: calc(100% - .04em); height: .18em; }
+.citron-u svg path { stroke: var(--citron-400); stroke-width: 10; }
+.hl-citron { color: var(--ink-900); background: linear-gradient(180deg, transparent 56%, var(--citron-400) 56%); padding: 0 .08em; }
+/* on ink slides a half-height marker leaves the letter tops invisible — use a full citron block */
+.slide.ink .hl-citron { background: var(--citron-400); padding: 0 .14em; border-radius: .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+.arc-bg { position: absolute; pointer-events: none; }
+
+/* card chips for content slides */
+.s-card { background: #fff; border: 1px solid var(--border-paper); border-radius: 22px; box-shadow: var(--shadow-sm); padding: 30px; }
+.slide.ink .s-card { background: var(--ink-700); border-color: rgba(255,255,255,.08); }

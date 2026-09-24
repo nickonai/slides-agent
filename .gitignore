@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Секреты
+.env
+.env.*
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Артефакты сборки: пересобираются одной командой
+*.pptx
+*.pdf
+*.png
+!examples/preview.png
+*-mobile.html
+**/build/
+examples/*/html/
+examples/*/png/
+
+# Личные презентации и загружаемый пакет навыка
+presentations/
+dist/

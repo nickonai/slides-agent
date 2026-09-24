@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "slides-agent",
+  "version": "1.0.0",
+  "description": "Презентатор: любой контент — в презентацию в фирменном стиле. YAML → HTML-дек, PNG, PPTX с заметками, PDF и версия для телефона, с самопроверкой каждого слайда",
+  "author": {
+    "name": "Nikolai Volosiankov"
+  },
+  "skills": [
+    "./skills/slides"
+  ],
+  "agents": [
+    "./agents/prezentator.md"
+  ]
+}
